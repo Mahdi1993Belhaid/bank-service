@@ -36,6 +36,7 @@ public class AccountEventHandlerService {
         Account account = Account.builder()
                 .accountId(eventMessage.getPayload().getAccountId())
                 .currency(eventMessage.getPayload().getCurrency())
+                .clientId(eventMessage.getPayload().getClientId())
                 .status(eventMessage.getPayload().getStatus())
                 .createdAt(eventMessage.getTimestamp())
                 .build();
