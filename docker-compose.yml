@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+
+  axon-server:
+    image: axoniq/axonserver:latest
+    container_name: axon-server
+    restart: unless-stopped
+    ports:
+      - "8024:8024"
+      - "8124:8124"
+
+
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=bankservicel
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin1
+    healthcheck:
+      test: "pg_isready -U postgres"
+
