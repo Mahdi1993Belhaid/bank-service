@@ -22,6 +22,7 @@ public class Operation {
     private String initiatorId;
     @Enumerated(EnumType.STRING)
     private TransactionType type;
+    @JsonIgnore
     @ManyToOne
     Account account;
 }
